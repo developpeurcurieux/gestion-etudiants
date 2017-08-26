@@ -1,2 +1,4 @@
 com/entities/Etudiant.class
+com/controllers/EtudiantController.class
 com/DemoApplication.class
+com/dao/EtudiantRepository.class
