@@ -12,6 +12,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -23,9 +28,15 @@ public class Etudiant implements Serializable {
     private Long id;
     
     @Column(name="nom", length=30)
+    @NotEmpty
+    @Size(min=2, max=30, message="Je ne veux pas")
     private String nom;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
+
+    @NotEmpty
+    @Email
     private String email;
     private String photo;
     
@@ -33,6 +44,10 @@ public class Etudiant implements Serializable {
 //    private byte[] photo;
 
     public Etudiant() {
+    }
+    
+    public Etudiant(String nom) {
+        this.nom = nom;
     }
 
     public Etudiant(String nom, Date dateNaissance, String email, String photo) {
