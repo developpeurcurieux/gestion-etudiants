@@ -39,6 +39,7 @@ public class Etudiant implements Serializable {
     @Email
     private String email;
     private String photo;
+    private byte[] fichierPhoto;
     
     // pour la db
 //    private byte[] photo;
@@ -95,6 +96,14 @@ public class Etudiant implements Serializable {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public byte[] getFichierPhoto() {
+        return fichierPhoto;
+    }
+
+    public void setFichierPhoto(byte[] fichierPhoto) {
+        this.fichierPhoto = fichierPhoto;
     }
     
     

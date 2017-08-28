@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping(value="/Etudiant")
-public class EtudiantController {
+public class EtudiantController { 
     @Autowired
     private EtudiantRepository etudiantRepository;
     
@@ -38,7 +38,7 @@ public class EtudiantController {
         int pagesCount = pageEtudiants.getTotalPages();
         int[] pages = new int[pagesCount];
         
-        for(int i = 0; i < pagesCount; i++) {
+        for(int i = 0; i < pagesCount; i++) { 
             pages[i] = i;
         }
         
@@ -58,14 +58,16 @@ public class EtudiantController {
     @RequestMapping(value="/saveEtudiant", method=RequestMethod.POST)
     public String save(@Valid Etudiant etudiant, 
             BindingResult bindingResult,
-            @RequestParam(name="photo")MultipartFile file) throws IOException {
+            @RequestParam(name="id")MultipartFile file) throws IOException {
         if(bindingResult.hasErrors()) {
             return "FormEtudiant";
         }
         
         if( !(file.isEmpty() )) {
+            System.out.println("--------------------------");
+            System.out.println(file.getOriginalFilename());
             etudiant.setPhoto(file.getOriginalFilename());
-            file.transferTo(new File(System.getProperty("user.home")+"/sco"));
+            file.transferTo(new File("C:/Users/cdi213/sco"));
             
         }
         etudiantRepository.save(etudiant);
