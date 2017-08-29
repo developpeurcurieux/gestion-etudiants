@@ -1,4 +1,4 @@
-com\entities\Etudiant.class
-com\dao\EtudiantRepository.class
-com\DemoApplication.class
-com\controllers\EtudiantController.class
+com/entities/Etudiant.class
+com/controllers/EtudiantController.class
+com/DemoApplication.class
+com/dao/EtudiantRepository.class

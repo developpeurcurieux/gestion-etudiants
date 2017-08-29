@@ -13,6 +13,8 @@ and open the template in the editor.
               th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
          <link rel="stylesheet" type="text/css" href="../static/css/myStyle.css" 
               th:href="@{/css/myStyle.css}" />
+         
+         
         
     </head>
     <body>
@@ -29,14 +31,14 @@ and open the template in the editor.
                 </div>
             </form>
         </div>
-        <div class="container spacer">
-            <table class="table table-striped">
+        <div class="container spacer" id="donnees">
+            <table class="table table-striped" id="hg">
                 <thead>
                     <tr>
                         <th>ID</th><th>Nom</th><th>Date</th><th>Photo</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody >
                     <tr th:each="e : ${pageEtudiants.content}">
                         <td th:text="${e.id}"></td>
                         <td th:text="${e.nom}"></td>
@@ -54,5 +56,11 @@ and open the template in the editor.
                 </li>
             </ul>
         </div>
+        
+        <script th:src="@{/webjars/jquery/jquery.min.js}" />
+        
+        <script th:src="@{/js/myScript.js}" />
     </body>
+    
+    
 </html>
