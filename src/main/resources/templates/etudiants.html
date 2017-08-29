@@ -44,7 +44,14 @@ and open the template in the editor.
                         <td th:text="${e.nom}"></td>
                         <td th:text="${e.dateNaissance}"></td>
                         <td th:text="${e.email}"></td>
-                        <td th:text="${e.photo}"></td>
+                        <td>
+                            <img th:src="@{getPhoto(id=${e.id})}" width="100" height="100" class="img-rounded"/>
+                        </td>
+                        <td>
+                            <a onclick="return confirm('Etes-vous sur ?')" th:href="@{supprimer(id=${e.id})}">Supprimer</a></td>
+                        <td>
+                            <a th:href="@{edit(id=${e.id})}">Editer</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
