@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org">
+    
+    <head>
+        <title>Saisie des etudiants</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/myStyle.css}" />
+    </head>
+    <body>
+        <div class="col-md-6 col-xs-12 spacer">
+            <div class="panel panel-default">
+                <div class="panel-heading">Saisie d'un étudiant</div>
+                <div class="panel-body">
+                    <form th:action="@{saveEtudiant}" method="post" th:object="${etudiant}">
+                        <div class="form-group">
+                            <label class="control-label">Nom: </label>
+                            <input type="text" th:field="*{nom}" class="form-control" />
+                            <span></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Date Naissance: </label>
+                            <input type="date" th:field="*{dateNaissance}" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Email: </label>
+                            <input type="email" th:field="*{email}" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Photo: </label>
+                            <input type="file" th:field="*{nomPhoto}" class="form-control" />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </body>
+</html>

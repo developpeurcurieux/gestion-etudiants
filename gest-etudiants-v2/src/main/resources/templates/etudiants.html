@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Liste des etudiants</title>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/myStyle.css}" />
+        
+    </head>
+    <body>
+        
+        <div class="container spacer">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th><th>Nom</th><th>Date</th><th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="e : ${pageEtudiants.content}">
+                    <td th:text="${e.id}"></td>
+                    <td th:text="${e.nom}"></td>
+                    <td th:text="${e.dateNaissance}"></td>
+                    <td th:text="${e.nomPhoto}"></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div>
+            <div class="container">
+                <ul class="nav nav-pills">
+                    <li th:each="p : ${pages}" th:class="${p == pageCourante} ? active : '' ">
+                        <!-- On met Index car ici, on est dans le context de EtudiantController 
+                        et EtudiantController contient @RequestMapping("/Index") -->
+                        <a  th:text="${p}" th:href="@{Index(page=${p})}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
